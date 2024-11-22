@@ -15,6 +15,8 @@ spec:
       labels:
         app: go-app
     spec:
+      imagePullSecrets:
+        - name: go-app-registry  # Name of the secret you created
       containers:
       - name: go-app
         image: emafzal/go-app:v1
