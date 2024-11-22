@@ -2,16 +2,17 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-app-ingress
+  namespace: go-app-namespace
 spec:
   ingressClassName: nginx
   rules:
   - host: "go-app.com"
     http:
       paths:
-        path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: go-app-service
-            port:
-              number: 80
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: go-app-service
+              port:
+                number: 80
